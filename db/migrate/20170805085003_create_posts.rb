@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration[5.1]
     create_table :posts do |t|
       t.text :body
       t.string :title
-
+      t.belongs_to :user, index: true
       t.timestamps
     end
   end
