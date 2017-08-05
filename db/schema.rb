@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805091249) do
+ActiveRecord::Schema.define(version: 20170805095250) do
 
   create_table "comments", force: :cascade do |t|
+    t.string "username"
     t.text "content"
     t.string "commentable_type"
     t.integer "commentable_id"
@@ -20,6 +21,17 @@ ActiveRecord::Schema.define(version: 20170805091249) do
     t.datetime "updated_at", null: false
     t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.text "description"
+    t.string "title"
+    t.string "tags"
+    t.string "address"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_places_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
