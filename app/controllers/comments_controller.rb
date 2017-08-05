@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
 
   def index
     #redirrect back to post not to show comments
-    @post = Post.find(params[:post_id])
-    redirect_to @post
+    #redirect_to index
+    @place = Place.find(params[:place_id])
   end
 
   def new
@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.new comment_params
+    @comment.username = current_user.username
     if @comment.save
       redirect_to @commentable, notice: "Comment created." 
     else
