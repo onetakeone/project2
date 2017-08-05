@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @place.description %>
+  <strong>Title:</strong>
+  <%= @place.title %>
 </p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @place.title %>
+  <strong>Description:</strong>
+  <%= @place.description %>
 </p>
 
 <p>
@@ -19,6 +19,8 @@
   <strong>Address:</strong>
   <%= @place.address %>
 </p>
+
+<p> registered by <%= @users.find(@place.user_id).username %> </p>
 
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>
