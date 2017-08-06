@@ -1,4 +1,4 @@
-<h2>Profile</h2>
+<h1>Profile</h1>
 
 <h3> <%= link_to 'Logout', destroy_user_session_path, method: :delete %> | <%= link_to "Delete #{current_user.username}", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
 </h3>

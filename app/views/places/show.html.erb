@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<p> registered by <%= @users.find(@place.user_id).username %> </p>
+
 <p>
   <strong>Title:</strong>
   <%= @place.title %>
@@ -20,10 +22,9 @@
   <%= @place.address %>
 </p>
 
-<p> registered by <%= @users.find(@place.user_id).username %> </p>
 
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+
+<% if current_user.id == @place.user_id %><%= link_to 'Edit', edit_place_path(@place) %> |<% end %> <%= link_to 'Back', places_path %>
 
 <%= render "comments/comments" %>
 <%= render "comments/form" %>

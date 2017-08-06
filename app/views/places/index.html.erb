@@ -3,21 +3,11 @@
 <h1>Places</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Tags</th>
-      <th>Address</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @places.each do |place| %>
       <tr>
-        <td><%= place.title %></td>
-        <td><%= place.description[0..70] %>...</td>
+        <td><strong><%= place.title %></strong></td>
+        <td><%= link_to "#{place.description[0..70]}", place %>...</td>
         <td><%= place.tags %></td>
         <td><%= place.address %></td>
         <td><%= link_to 'Show', place %><% if current_user.id == place.user_id %> | <%= link_to 'Edit', edit_place_path(place) %> | <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %><%end%><td>
