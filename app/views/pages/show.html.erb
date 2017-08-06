@@ -1,9 +1,0 @@
-<h2><%= current_user.username %></h2>
-
-<%= link_to 'Edit', edit_user_registration_path %> | <%= link_to 'logout', destroy_user_session_path, :method => :delete %>
-
-<% @places.each do |var| %>
-	<% if var.user_id == current_user.id %>
-	  <%= link_to "#{var.title}", var_path %>
-	<% end %>
-<% end%>
