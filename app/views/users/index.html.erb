@@ -1,0 +1,14 @@
+<h2>users</h2>
+
+<% @users.each do |var| %>
+	<strong><%= var.username.capitalize %></strong>
+		<p>places:</p>
+			<% var.places.each_with_index do |place, i| %>
+				<p><%= i+1 %>. <%= link_to "#{place.title}", place %></p>
+			<% end %>
+		<p>posts:</p>
+			<% var.posts.each_with_index do |post, i| %>
+				<p><%= i+1 %>. <%= link_to "#{post.title}", post %></p>
+			<% end %>
+<p>-</p>
+<% end %>
