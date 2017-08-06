@@ -9,6 +9,7 @@ class PlacesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@places) do |place, marker|
       marker.lat place.latitude
       marker.lng place.longitude
+      marker.infowindow place.description 
     end
   end
 
@@ -38,6 +39,7 @@ class PlacesController < ApplicationController
   def create
     @user = current_user
     @place = @user.places.new(place_params)
+    @place.longtitude = @place
     respond_to do |format|
         if @place.save
           format.html { redirect_to @place, notice: 'Place was successfully created.' }
