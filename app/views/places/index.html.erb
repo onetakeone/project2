@@ -5,24 +5,22 @@
 <table>
   <thead>
     <tr>
-      <th>Description</th>
       <th>Title</th>
+      <th>Description</th>
       <th>Tags</th>
       <th>Address</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @places.each do |place| %>
       <tr>
-        <td><%= place.description %></td>
         <td><%= place.title %></td>
+        <td><%= place.description[0..70] %>...</td>
         <td><%= place.tags %></td>
         <td><%= place.address %></td>
-        <td><%= link_to 'Show', place %></td>
-        <td><%= link_to 'Edit', edit_place_path(place) %></td>
-        <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', place %><% if current_user.id == place.user_id %> | <%= link_to 'Edit', edit_place_path(place) %> | <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %><%end%><td>
       </tr>
     <% end %>
   </tbody>
