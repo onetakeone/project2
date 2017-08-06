@@ -1,2 +1,2 @@
-json.extract! place, :id, :description, :title, :tags, :address, :created_at, :updated_at
+json.extract! place, :id, :description, :title, :tags, :address, :created_at, :updated_at, :latitude, :longitude
 json.url place_url(place, format: :json)

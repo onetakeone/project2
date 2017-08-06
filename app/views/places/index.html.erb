@@ -10,12 +10,24 @@
         <td><%= link_to "#{place.description[0..70]}", place %>...</td>
         <td><%= place.tags %></td>
         <td><%= place.address %></td>
-        <td><%= link_to 'Show', place %><% if current_user.id == place.user_id %> | <%= link_to 'Edit', edit_place_path(place) %> | <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %><%end%><td>
+        <td><%= link_to 'Show', place %><% if current_user.id == place.user_id %> | <%= link_to 'Edit', edit_place_path(place) %> | <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %><%end%></td>
       </tr>
     <% end %>
   </tbody>
-</table>
-
-<br>
+</table> 
+<br>  
 
 <%= link_to 'New Place', new_place_path %>
+
+<div style='width: 100%;'>
+  <div id="map" style='width: 100%; height: 400px;'></div>
+</div>
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
