@@ -5,6 +5,11 @@ class CreatePlaces < ActiveRecord::Migration[5.1]
       t.string :title
       t.string :tags
       t.string :address
+      t.float :latitude
+      t.float :longitude
+      t.boolean :espresso
+      t.boolean :cappuccino
+      t.boolean :latte
       t.belongs_to :user, index: true
       t.timestamps
     end

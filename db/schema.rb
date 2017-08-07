@@ -28,6 +28,11 @@ ActiveRecord::Schema.define(version: 20170805095250) do
     t.string "title"
     t.string "tags"
     t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.boolean "espresso"
+    t.boolean "cappuccino"
+    t.boolean "latte"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
