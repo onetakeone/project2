@@ -32,6 +32,9 @@ class PlacesController < ApplicationController
   # GET /places/1/edit
   def edit
     @place = Place.find(params[:id])
+    if @place.user_id != current_user.id
+      redirect_to places_url
+    end
   end
 
   # POST /places
@@ -85,6 +88,10 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:description, :title, :tags, :address, :latitude, :longitude, :espresso )
+      params.require(:place).permit(:description, :title, :tags, :address, :latitude, :longitude, :espresso, :cappuccino, :latte )
+    end
+
+    def not_found
+      raise ActionController::RoutingError.new('Not Found')
     end
 end
