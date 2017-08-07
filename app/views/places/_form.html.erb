@@ -31,18 +31,22 @@
   </div>
 
   <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude, id: :place_latitude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude, id: :place_longitude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :espresso %>
-    <%= form.check_box :espresso %>
+    <table>
+      <tr>
+        <td>
+          <%= form.label :espresso %>
+          <%= form.check_box :espresso %>
+        </td>
+        <td>
+          <%= form.label :cappuccino %>
+          <%= form.check_box :cappuccino %>
+        </td>
+        <td>
+          <%= form.label :latte %>
+          <%= form.check_box :latte %>
+        </td>
+      </tr>
+    </table>
   </div>
 
   <div class="actions">

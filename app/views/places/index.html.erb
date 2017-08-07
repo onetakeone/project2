@@ -8,7 +8,7 @@
       <tr>
         <td><strong><%= place.title %></strong></td>
         <td><%= link_to "#{place.description[0..70]}", place %>...</td>
-        <td><%= place.tags %></td>
+        <td><%if place.espresso == true%> espresso |<% end %> <%if place.cappuccino == true%> cappuccino |<% end %> <%if place.latte == true%> latte <% end %></td>
         <td><%= place.address %></td>
         <td><%= link_to 'Show', place %><% if current_user.id == place.user_id %> | <%= link_to 'Edit', edit_place_path(place) %> | <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %><%end%></td>
       </tr>
