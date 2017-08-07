@@ -39,7 +39,7 @@ class PlacesController < ApplicationController
   def create
     @user = current_user
     @place = @user.places.new(place_params)
-    @place.longtitude = @place
+     
     respond_to do |format|
         if @place.save
           format.html { redirect_to @place, notice: 'Place was successfully created.' }
