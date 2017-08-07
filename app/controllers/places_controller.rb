@@ -17,6 +17,7 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @users = User.all
+    @order = Order.new
     @place = Place.find(params[:id])
     @commentable = @place
     @comments = @commentable.comments

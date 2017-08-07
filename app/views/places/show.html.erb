@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p> registered by <%= @users.find(@place.user_id).username %> </p>
+<%= link_to 'Back', places_path %>
+
+<p>
+<%if @place.espresso == true %><button onclick="espresso()"> espresso </button><% end %>
+<%if @place.cappuccino == true %><button onclick="cappuccino()"> cappuccino </button><% end %>
+<%if @place.latte == true %><button onclick="latte()"> latte </button><% end %>
+</p>
+<p>
+
+</p>
 
 <p>
   <strong>Title:</strong>
@@ -22,7 +31,50 @@
   <%= @place.address %>
 </p>
 
-<% if current_user.id == @place.user_id %><%= link_to 'Edit', edit_place_path(@place) %> |<% end %> <%= link_to 'Back', places_path %>
+<p> registered by <%= @users.find(@place.user_id).username %> </p>
+
+<% if current_user.id == @place.user_id %><%= link_to 'Edit', edit_place_path(@place) %> |<% end %> 
 
 <%= render "comments/comments" %>
 <%= render "comments/form" %>
+
+
+<script type="text/javascript">
+function espresso() 
+{
+	alert ('got espresso');
+	for(var x=0; x < 1; x++) 
+	{
+	  var hash_key = 'espresso';
+		var temp = window.localStorage.getItem(hash_key);
+		temp = temp * 1 + 1;
+		window.localStorage.setItem(hash_key, temp);
+	}
+} 		
+
+function cappuccino() 
+{
+	alert ('got cappuccino');
+	for(var x=0; x < 1; x++) 
+	{
+	  var hash_key = 'cappuccino';
+		var temp = window.localStorage.getItem(hash_key);
+		temp = temp * 1 + 1;
+		window.localStorage.setItem(hash_key, temp);
+	}
+} 	
+
+function latte() 
+{
+	alert ('got latte');
+	for(var x=0; x < 1; x++) 
+	{
+	  var hash_key = 'latte';
+		var temp = window.localStorage.getItem(hash_key);
+		temp = temp * 1 + 1;
+		window.localStorage.setItem(hash_key, temp);
+	}
+} 
+
+
+</script>
