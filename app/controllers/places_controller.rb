@@ -90,8 +90,4 @@ class PlacesController < ApplicationController
     def place_params
       params.require(:place).permit(:description, :title, :tags, :address, :latitude, :longitude, :espresso, :cappuccino, :latte )
     end
-
-    def not_found
-      raise ActionController::RoutingError.new('Not Found')
-    end
 end
