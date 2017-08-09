@@ -7,9 +7,7 @@
 <%if @place.cappuccino == true %><button onclick="cappuccino()"> cappuccino </button><% end %>
 <%if @place.latte == true %><button onclick="latte()"> latte </button><% end %>
 </p>
-<p>
-
-</p>
+<p></p>
 
 <p>
   <strong>Title:</strong>
@@ -22,13 +20,13 @@
 </p>
 
 <p>
-  <strong>Tags:</strong>
-  <%= @place.tags %>
+  <strong>Address:</strong>
+  <%= @place.address %>
 </p>
 
 <p>
-  <strong>Address:</strong>
-  <%= @place.address %>
+  <strong>Tags:</strong>
+  <%= @place.tags %>
 </p>
 
 <p> registered by <%= @users.find(@place.user_id).username %> </p>

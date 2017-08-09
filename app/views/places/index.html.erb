@@ -6,11 +6,11 @@
   <tbody>
     <% @places.each do |place| %>
       <tr>
-        <td><strong><%= place.title %></strong></td>
-        <td><%= link_to "#{place.description[0..70]}", place %>...</td>
-        <td><%if place.espresso == true%> espresso |<% end %> <%if place.cappuccino == true%> cappuccino |<% end %> <%if place.latte == true%> latte <% end %></td>
+        <td><strong><%= place.title %></strong></td>        
+        <td><%if place.espresso == true%> ESPRESSO |<% end %> <%if place.cappuccino == true%> CAPPUCCINO |<% end %> <%if place.latte == true%> LATTE <% end %></td>
+        <td></td>
         <td><%= place.address %></td>
-        <td><%= link_to 'Show', place %><% if current_user.id == place.user_id %> | <%= link_to 'Edit', edit_place_path(place) %> | <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %><%end%></td>
+        <td><%= link_to "#{place.description[0..25]}... show place", place %><% if current_user.id == place.user_id %> | <%= link_to 'Edit', edit_place_path(place) %> | <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %><%end%></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,5 @@
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   });
+
 </script>
