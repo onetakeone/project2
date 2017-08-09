@@ -1,14 +1,18 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
 
   def index
+    if current_user.username != 'admin' 
+      redirect_to places_url
+    end
     @orders = Order.order("created_at")
-
     @array = []
     @orders.each do |var|
       temp = var.orderlist
       temp = line_split temp
       @array << temp
     end
+
   end
 
   def new
@@ -20,9 +24,9 @@ class OrdersController < ApplicationController
   def create 
     @list = params[:orders_btn] 
     @order = Order.new(order_params)
-    @order.name = current_user.username      
-    @order.save
-    render :show
+    @order.name = current_user.username 
+    @order.save   
+    render :show     
   end
 
   def show
@@ -33,6 +37,8 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:name, :phone, :orderlist)
   end
+
+  private
 
   def line_split var
     split_1 = var.split(/,/)      #['product=2', 'product=3'...]
@@ -45,6 +51,7 @@ class OrdersController < ApplicationController
       hh[key] = value
       array.push hh
     end
-  return array
+    return array
   end
+
 end
