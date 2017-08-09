@@ -18,24 +18,10 @@
 //= require gmaps/google
 //= require_tree .
 
-
-
-function superalert()
-{
-	alert('111');
-}
-	
-
 function orders_input()
 {
 	var orders = orders_list();
 	$('#orders_input').val(orders);
-}
-
-function button_update()
-{
-	var text = 'Cart' + ' ' + '(' + items_in_cart() + ')';
-	$('#cart_btn').val(text);
 }
 
 function orders_list()
@@ -49,19 +35,8 @@ function orders_list()
      return list;
 }
 
-function order()
+function orders_clear()
 {
-
+	window.localStorage.clear();
 }
 
-
-function items_in_cart()
-{
-	var total = 0;
-	for(var i=0; i < localStorage.length; i++)
-	{
-   	 var key = localStorage.key(i);
-   	 var total = total*1 + localStorage[key]*1;
-    }
-     return total;     
-}
