@@ -3,11 +3,10 @@
 <%= link_to 'Back', places_path %>
 
 <p>
-<%if @place.espresso == true %><button onclick="espresso()"> espresso </button><% end %>
-<%if @place.cappuccino == true %><button onclick="cappuccino()"> cappuccino </button><% end %>
-<%if @place.latte == true %><button onclick="latte()"> latte </button><% end %>
+<%if @place.espresso == true %><button onclick="espresso()"> +1 espresso </button><% end %>
+<%if @place.cappuccino == true %><button onclick="cappuccino()"> +1 cappuccino </button><% end %>
+<%if @place.latte == true %><button onclick="latte()"> +1 latte </button><% end %>
 </p>
-<p></p>
 
 <p>
   <strong>Title:</strong>
@@ -48,6 +47,7 @@ function espresso()
 		temp = temp * 1 + 1;
 		window.localStorage.setItem(hash_key, temp);
 	}
+	location.reload();
 } 		
 
 function cappuccino() 
@@ -60,6 +60,7 @@ function cappuccino()
 		temp = temp * 1 + 1;
 		window.localStorage.setItem(hash_key, temp);
 	}
+	location.reload();
 } 	
 
 function latte() 
@@ -72,7 +73,12 @@ function latte()
 		temp = temp * 1 + 1;
 		window.localStorage.setItem(hash_key, temp);
 	}
+	location.reload();
 } 
 
-
+$(function()
+	{
+		orders_input();		
+	}
+);
 </script>

@@ -1,0 +1,26 @@
+<h2>Coffee order</h2>
+
+<p>Name: <%= current_user.username %></p>
+<p>Order: <% @info.each do |var| %> <% var.each do |key, value| %> <%= key.capitalize %> <strong><%= value %></strong> | <% end %><% end %></p>
+
+<%= form_for @order do |f| %>
+  <div class="field">
+    <%= f.label :phone %>
+    <%= f.text_field :phone, id: :order_phone %>
+  </div>
+
+  <div class="field" type="hidden">
+  	<%= f.label :orderlist %>
+    <%= f.text_field :orderlist, id: :order_orderlist, value: @list %>
+  </div>
+
+	<div class="actions">
+  	  <%= f.submit :Order %>
+  	</div>
+<% end %>
+
+<!-- <form action="/orders/create">
+    <input type="submit" value="Order">
+</form> -->
+
+

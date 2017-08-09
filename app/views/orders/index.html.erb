@@ -1,0 +1,19 @@
+<% @orders.each_with_index do |var, i|%>
+	<table>
+		<tr>
+			<td>
+				<%= var.name %>
+			</td>
+			<td>
+				<%= var.phone %>
+			</td>
+			<td>
+			<% @array[i].each do |variable| %>
+				  <% variable.each do |key, value| %>
+						<%= key.capitalize %> <strong> <%= value %> |	</strong>
+					<% end %>
+				<% end %>
+			</td>			
+		</tr>
+	</table>
+<% end %>

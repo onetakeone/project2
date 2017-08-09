@@ -11,8 +11,21 @@
 
   <body>
    <header>
-  	<%= link_to 'posts', posts_path %> | <%= link_to 'places', places_path %> | <%= link_to 'adepts', users_path %><%if user_signed_in? %> | <%= link_to "#{current_user.username}", edit_user_registration_path %> <% end %>
+   <table>
+   <tr><td>
+  	<%= link_to 'posts', posts_path %> | <%= link_to 'places', places_path %> | <%= link_to 'adepts', users_path %><%if user_signed_in? %> | <%= link_to "#{current_user.username}", edit_user_registration_path %> <% end %> <%if current_user.username = 'admin' %>| <%= link_to 'orders', orders_path %> <% end %></td><td>
+    <form action="/orders/new"><input type="hidden" name="orders_btn" id="orders_input" ><input type="submit" id="cart_btn" value="coffee order" onclick="orders_input()"></form></td></tr></table>
+
   </header>
     <%= yield %>
   </body>
 </html>
+
+
+<script type="text/javascript">
+$(function()
+  {
+    orders_input();   
+  }
+);
+</script>
