@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
-  def index
-  end
-  def show
+  
+  def admin
     @user = current_user
     @posts = Post.all
     @places = Place.all

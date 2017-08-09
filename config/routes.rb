@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'posts#index'
   get 'comments/index'
   get 'comments/new'
-  get 'pages/show'
+  get 'pages/admin'
   
   devise_for :users
   resources :posts do
