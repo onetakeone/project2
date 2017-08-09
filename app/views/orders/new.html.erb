@@ -1,7 +1,7 @@
 <h2>Coffee order</h2>
 
 <p>Name: <%= current_user.username %></p>
-<p>Order: <% @info.each do |var| %> <% var.each do |key, value| %> <%= key.capitalize %> <strong><%= value %></strong> | <% end %><% end %></p>
+<%= render 'form' %>
 
 <%= form_for @order do |f| %>
 
@@ -23,7 +23,7 @@
 
   <div class="field" type="hidden">
   	<%= f.label :orderlist %>
-    <%= f.text_field :orderlist, id: :order_orderlist, value: @list %>
+    <%= f.text_field :orderlist, id: :order_orderlist, value: $list %>
   </div>
 
 	<div class="actions">
