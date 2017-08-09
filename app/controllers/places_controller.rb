@@ -5,11 +5,11 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    @places = Place.order("title")
     @hash = Gmaps4rails.build_markers(@places) do |place, marker|
       marker.lat place.latitude
       marker.lng place.longitude
-      marker.infowindow place.description 
+      marker.infowindow place.title
     end
   end
 
@@ -28,6 +28,7 @@ class PlacesController < ApplicationController
   def new
     @user = current_user
     @place = @user.places.new
+
   end
 
   # GET /places/1/edit
@@ -43,8 +44,7 @@ class PlacesController < ApplicationController
   def create
     @user = current_user
     @place = @user.places.new(place_params)
-     
-    respond_to do |format|
+      respond_to do |format|
         if @place.save
           format.html { redirect_to @place, notice: 'Place was successfully created.' }
           format.json { render :show, status: :created, location: @place }
