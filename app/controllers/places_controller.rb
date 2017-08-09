@@ -2,8 +2,6 @@ class PlacesController < ApplicationController
   before_action :authenticate_user!
   #before_action :set_place, only: [:show, :edit, :update, :destroy]
 
-  # GET /places
-  # GET /places.json
   def index
     @places = Place.order("title")
     @hash = Gmaps4rails.build_markers(@places) do |place, marker|
@@ -13,25 +11,19 @@ class PlacesController < ApplicationController
     end
   end
 
-  # GET /places/1
-  # GET /places/1.json
   def show
     @users = User.all
-    @order = Order.new
     @place = Place.find(params[:id])
     @commentable = @place
     @comments = @commentable.comments
     @comment = Comment.new
   end
 
-  # GET /places/new
   def new
     @user = current_user
     @place = @user.places.new
-
   end
 
-  # GET /places/1/edit
   def edit
     @place = Place.find(params[:id])
     if @place.user_id != current_user.id
@@ -39,8 +31,6 @@ class PlacesController < ApplicationController
     end
   end
 
-  # POST /places
-  # POST /places.json
   def create
     @user = current_user
     @place = @user.places.new(place_params)
