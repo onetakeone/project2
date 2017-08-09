@@ -17,16 +17,25 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @list = params[:orders_btn]
-    @info = line_split params[:orders_btn] 
+    $list = params[:orders_btn]
+    $info = line_split params[:orders_btn] 
   end
 
   def create 
-    @list = params[:orders_btn] 
+    $list = params[:orders_btn] 
     @order = Order.new(order_params)
     @order.name = current_user.username 
-    @order.save   
-    render :show     
+      
+    respond_to do |format|  
+        if @order.save
+          format.html { render :show , notice: 'Place was successfully created.' }
+          format.json { render :show, status: :created, location: :show }
+        else
+          format.html { redirect_back(fallback_location: root_path) }
+          format.json { render json: @order.errors, status: :unprocessable_entity }
+        end
+    end
+        
   end
 
   def show
