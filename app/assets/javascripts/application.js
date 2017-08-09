@@ -12,8 +12,56 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require jquery_ujs
 //= require underscore
 //= require gmaps/google
 //= require_tree .
 
 
+
+function superalert()
+{
+	alert('111');
+}
+	
+
+function orders_input()
+{
+	var orders = orders_list();
+	$('#orders_input').val(orders);
+}
+
+function button_update()
+{
+	var text = 'Cart' + ' ' + '(' + items_in_cart() + ')';
+	$('#cart_btn').val(text);
+}
+
+function orders_list()
+{
+	var list = '';
+	for(var i=0; i < localStorage.length; i++)
+	{
+   	 var key = localStorage.key(i);   //localStorage.key = key , localStorage[key] = value
+   	 var list = list + localStorage.key(i) + '=' + localStorage[key] + ',';
+   	}
+     return list;
+}
+
+function order()
+{
+
+}
+
+
+function items_in_cart()
+{
+	var total = 0;
+	for(var i=0; i < localStorage.length; i++)
+	{
+   	 var key = localStorage.key(i);
+   	 var total = total*1 + localStorage[key]*1;
+    }
+     return total;     
+}

@@ -9,6 +9,8 @@ gem 'devise'
 gem 'geocoder'
 gem 'bcrypt', platforms: :ruby
 gem 'gmaps4rails'
+gem 'jquery-rails'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
