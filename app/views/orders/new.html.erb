@@ -4,6 +4,18 @@
 <p>Order: <% @info.each do |var| %> <% var.each do |key, value| %> <%= key.capitalize %> <strong><%= value %></strong> | <% end %><% end %></p>
 
 <%= form_for @order do |f| %>
+
+	<% if @order.errors.any? %>
+	   <div id="error_explanation">
+	      <h3><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h3>
+	      <ul>
+	        <% @order.errors.full_messages.each do |msg| %>
+	          <li><%= msg %></li>
+	        <% end %>
+	      </ul>
+	    </div>
+ 	 <% end %>
+
   <div class="field">
     <%= f.label :phone %>
     <%= f.text_field :phone, id: :order_phone %>
@@ -18,9 +30,3 @@
   	  <%= f.submit :Order %>
   	</div>
 <% end %>
-
-<!-- <form action="/orders/create">
-    <input type="submit" value="Order">
-</form> -->
-
-
