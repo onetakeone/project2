@@ -1,18 +1,15 @@
 class CommentsController < ApplicationController
 
+  # Polymorphic assosiation comments
+
   before_action :load_commentable
 
-  def index
-    #redirrect back to post not to show comments
-    #redirect_to index
-    @place = Place.find(params[:place_id])
-  end
-
-  def new
+  def new    
     @comment = @commentable.comments.new
   end
 
   def create
+
     @comment = @commentable.comments.new comment_params
     @comment.username = current_user.username
     if @comment.save
