@@ -2,10 +2,11 @@
 
 <%= link_to 'Back', places_path %>
 
+<!-- Javascript function buttons - adds 1 item order to cart -->
 <p>
-<%if @place.espresso == true %><button onclick="espresso()"> +1 espresso </button><% end %>
-<%if @place.cappuccino == true %><button onclick="cappuccino()"> +1 cappuccino </button><% end %>
-<%if @place.latte == true %><button onclick="latte()"> +1 latte </button><% end %>
+<%if @place.espresso == true %><button onclick="coffee_function('espresso')"> +1 espresso </button><% end %>
+<%if @place.cappuccino == true %><button onclick="coffee_function('cappuccino')"> +1 cappuccino </button><% end %>
+<%if @place.latte == true %><button onclick="coffee_function('latte')"> +1 latte </button><% end %>
 </p>
 
 <p>
@@ -30,6 +31,7 @@
 
 <p> registered by <%= @users.find(@place.user_id).username %> </p>
 
+<!-- 'edit button is visible only for place creator' --> 
 <% if current_user.id == @place.user_id %><%= link_to 'Edit', edit_place_path(@place) %> |<% end %> 
 
 <%= render "comments/comments" %>
@@ -37,44 +39,18 @@
 
 
 <script type="text/javascript">
-function espresso() 
-{
-	alert ('got espresso');
+function coffee_function(variable) 
+{ 
+	alert ('Dear Adept, you have added 1 ' + variable + ' to your order.');
 	for(var x=0; x < 1; x++) 
 	{
-	  var hash_key = 'espresso';
+	  var hash_key = variable;
 		var temp = window.localStorage.getItem(hash_key);
 		temp = temp * 1 + 1;
 		window.localStorage.setItem(hash_key, temp);
 	}
 	location.reload();
 } 		
-
-function cappuccino() 
-{
-	alert ('got cappuccino');
-	for(var x=0; x < 1; x++) 
-	{
-	  var hash_key = 'cappuccino';
-		var temp = window.localStorage.getItem(hash_key);
-		temp = temp * 1 + 1;
-		window.localStorage.setItem(hash_key, temp);
-	}
-	location.reload();
-} 	
-
-function latte() 
-{
-	alert ('got latte');
-	for(var x=0; x < 1; x++) 
-	{
-	  var hash_key = 'latte';
-		var temp = window.localStorage.getItem(hash_key);
-		temp = temp * 1 + 1;
-		window.localStorage.setItem(hash_key, temp);
-	}
-	location.reload();
-} 
 
 $(function()
 	{
