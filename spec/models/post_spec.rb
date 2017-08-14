@@ -8,16 +8,19 @@ describe Post do
     it { should validate_length_of(:body).is_at_most(4000) }
   end
 
+
   describe "associations" do
     it { should have_many(:comments) }
     it { should belong_to(:user) }
   end
 
+
+  #Post and User created at /spec/factories/posts.rb
   describe "#random_test" do
     it "returns title" do
       user = create :user
       post = create(:post, title: 'avx', user: user)
-      expect(post.subject).to eq 'avx'
+      expect(post.random_test).to eq 'avx'
     end
   end  
 end
