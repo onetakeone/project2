@@ -14,9 +14,19 @@
  *= require_self
  */
 
- .postform {
- 	rows: 10;
+ .testform { 	
+ 	padding: 10px;
  }
+
+ .titleform {
+ 	width: 700px;
+ }
+ 
+ .textform { 	
+ 	width: 700px;
+ 	height: 300px;
+ }
+
 
 /* Login form */
 .loginform {

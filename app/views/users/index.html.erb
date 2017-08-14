@@ -1,14 +1,16 @@
 <h1>Users</h1>
-&nbsp
+
+<div class="testform">
 <% @users.each do |var| %>
-	<h2>| <%= var.username.capitalize %></h2>
-		<h3>Settled places:</h3>
+	<h2> <%= var.username.capitalize %></h2>
+		<h3>| Settled places:</h3>
 			<% var.places.each_with_index do |place, i| %>
 				<div style="margin: 20px"><%= i+1 %>. <%= link_to "#{place.title}", place %></div>
 			<% end %>
-		<h3>Done posts:</h3>
+		<h3>| Done posts:</h3>
 			<% var.posts.each_with_index do |post, i| %>
 				<div style="margin: 20px"><%= i+1 %>. <%= link_to "#{post.title}", post %></div>
 			<% end %>
-<p>&nbsp</p>
+			&nbsp
 <% end %>
+</div>

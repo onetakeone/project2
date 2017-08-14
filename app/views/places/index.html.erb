@@ -2,6 +2,9 @@
 
 <h1>Places</h1>
 
+<!-- Defalut button method (POST) changed to GET -->
+<p><%= button_to 'New Place', new_place_path, :class => 'btn-1', :method => :get %></p>
+
 <table class="table">
   <theader>
     <th>Title:</th>
@@ -23,9 +26,6 @@
   </tbody>
 </table> 
 <br>  
-
-<!-- Defalut button method (POST) changed to GET -->
-<p><%= button_to 'New Place', new_place_path, :class => 'btn-1', :method => :get %></p>
 
 <!-- Google map frame -->
 <div style='width: 100%;'>
