@@ -1,19 +1,28 @@
+<h1>Orders</h1>
+
+<table class="table">
+		<tr>
+			<th>Name:</th>
+			<th>Phone:</th>
+			<th>Order:</th>
+		</tr>
 <% @orders.each_with_index do |var, i|%>
-	<table>
+	
 		<tr>
 			<td>
-				<%= var.name %>
+				<%= var.name.upcase %>
 			</td>
 			<td>
-				<%= var.phone %>
+				<strong><%= var.phone %></strong>
 			</td>
 			<td>
 			<% @array[i].each do |variable| %>
 				  <% variable.each do |key, value| %>
-						<%= key.capitalize %> <strong> <%= value %> |	</strong>
+						// <%= key.capitalize %> <strong> <%= value %> </strong> 
 					<% end %>
 				<% end %>
 			</td>			
 		</tr>
-	</table>
+	
 <% end %>
+</table>

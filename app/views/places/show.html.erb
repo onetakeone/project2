@@ -1,17 +1,15 @@
+<h1><%= @place.title %></h1>
+
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Back', places_path %>
+<h3><%= link_to 'Back to places', places_path %></h3>
 
 <!-- Javascript function buttons - adds 1 item order to cart -->
 <p>
-<%if @place.espresso == true %><button onclick="coffee_function('espresso')"> +1 espresso </button><% end %>
-<%if @place.cappuccino == true %><button onclick="coffee_function('cappuccino')"> +1 cappuccino </button><% end %>
-<%if @place.latte == true %><button onclick="coffee_function('latte')"> +1 latte </button><% end %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @place.title %>
+<strong>Order coffee: </strong>
+<%if @place.espresso == true %><button class="btn btn-4" onclick="coffee_function('espresso')"> +1 espresso </button><% end %>
+<%if @place.cappuccino == true %><button class="btn btn-4" onclick="coffee_function('cappuccino')"> +1 cappuccino </button><% end %>
+<%if @place.latte == true %><button class="btn btn-4" onclick="coffee_function('latte')"> +1 latte </button><% end %>
 </p>
 
 <p>
@@ -29,10 +27,10 @@
   <%= @place.tags %>
 </p>
 
-<p> registered by <%= @users.find(@place.user_id).username %> </p>
+<i> registered by <%= @users.find(@place.user_id).username %> </i>
 
 <!-- 'edit button is visible only for place creator' --> 
-<% if current_user.id == @place.user_id %><%= link_to 'Edit', edit_place_path(@place) %> |<% end %> 
+<p><% if current_user.id == @place.user_id %><%= link_to 'Edit', edit_place_path(@place) %><% end %></p>
 
 <%= render "comments/comments" %>
 <%= render "comments/form" %>

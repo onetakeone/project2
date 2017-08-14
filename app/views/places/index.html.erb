@@ -2,27 +2,37 @@
 
 <h1>Places</h1>
 
-<table>
+<table class="table">
+  <theader>
+    <th>Title:</th>
+    <th>We serve:</th>
+    <th>Address:</th>
+    <th>Description:</th> 
+    <th></th> 
+  </theader>
   <tbody>
     <% @places.each do |place| %>
       <tr>
         <td><strong><%= place.title %></strong></td>        
-        <td><%if place.espresso == true%> ESPRESSO |<% end %> <%if place.cappuccino == true%> CAPPUCCINO |<% end %> <%if place.latte == true%> LATTE <% end %></td>
-        <td></td>
+        <td><%if place.espresso == true%>// ESPRESSO <% end %> <%if place.cappuccino == true%>// CAPPUCCINO <% end %> <%if place.latte == true%>// LATTE <% end %></td>
         <td><%= place.address %></td>
-        <td><%= link_to "#{place.description[0..25]}... show place", place %><% if current_user.id == place.user_id %> | <%= link_to 'Edit', edit_place_path(place) %> | <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %><%end%></td>
+        <td><%= link_to "#{place.description[0..25]}...", place %></td>
+        <td><% if current_user.id == place.user_id %> | <%= link_to 'Edit', edit_place_path(place) %> | <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %><%end%></td>
       </tr>
     <% end %>
   </tbody>
 </table> 
 <br>  
 
-<%= link_to 'New Place', new_place_path %>
+<!-- Defalut button method (POST) changed to GET -->
+<p><%= button_to 'New Place', new_place_path, :class => 'btn-1', :method => :get %></p>
 
+<!-- Google map frame -->
 <div style='width: 100%;'>
   <div id="map" style='width: 100%; height: 400px;'></div>
 </div>
 
+<!-- Gmap javascript -->
 <script type="text/javascript">
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){

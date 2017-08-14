@@ -1,14 +1,14 @@
 <h1>Users</h1>
-
+&nbsp
 <% @users.each do |var| %>
-	<h2><%= var.username.capitalize %></h2>
+	<h2>| <%= var.username.capitalize %></h2>
 		<h3>Settled places:</h3>
 			<% var.places.each_with_index do |place, i| %>
-				<p><%= i+1 %>. <%= link_to "#{place.title}", place %></p>
+				<div style="margin: 20px"><%= i+1 %>. <%= link_to "#{place.title}", place %></div>
 			<% end %>
 		<h3>Done posts:</h3>
 			<% var.posts.each_with_index do |post, i| %>
-				<p><%= i+1 %>. <%= link_to "#{post.title}", post %></p>
+				<div style="margin: 20px"><%= i+1 %>. <%= link_to "#{post.title}", post %></div>
 			<% end %>
 <p>&nbsp</p>
 <% end %>
