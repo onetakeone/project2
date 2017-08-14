@@ -46,9 +46,11 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
   # MY TESTING GEMS !!!!!!!!!!!!!!!!!!!!!!!!!!
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem "factory_girl_rails", "~> 4.0"  # add - config.include FactoryGirl::Syntax::Methods - to rails_helper
 end
 
 group :development do
