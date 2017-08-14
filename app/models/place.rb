@@ -6,6 +6,7 @@ class Place < ApplicationRecord
   has_many :comments, as: :commentable
   belongs_to :user
 
+  #generates longitude and latitude from address data
   geocoded_by :address
   after_validation :geocode  
 end

@@ -5,11 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'devise' 
-gem 'geocoder'
-gem 'bcrypt', platforms: :ruby
-gem 'gmaps4rails'
-gem 'jquery-rails'
+# MY GEMS !!!!!!!!!!!!!!!!!!!!!!!!!!
+gem 'devise'   #registration, authentification
+gem 'geocoder' 
+gem 'bcrypt', platforms: :ruby #works incorrect with devise, needs to be reinstalled after bundle (gem install bcrypt --platform=ruby)
+gem 'gmaps4rails' 
+gem 'jquery-rails' #supports javascript 
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -45,6 +46,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  # MY TESTING GEMS !!!!!!!!!!!!!!!!!!!!!!!!!!
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
