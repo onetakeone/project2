@@ -13,3 +13,103 @@
  *= require_tree .
  *= require_self
  */
+
+ .postform {
+ 	rows: 10;
+ }
+
+/* Login form */
+.loginform {
+	padding-top: 40px;
+	margin: auto;
+	width: 200px ;	
+}
+
+
+/* Table style */
+.table {
+    width: 100%;
+    border-bottom: 1px;
+    padding: 10px;
+}
+
+th {
+	font-size: 10px;
+    height: 20px;
+    text-align: left;
+}
+
+/* Order page button */
+.btn {		
+cursor: pointer;	
+padding: 10px 20px;	
+display: inline-block;	
+text-transform: uppercase;	
+letter-spacing: 1px;	
+font-weight: 700;	
+outline: none;	
+position: relative;	
+-webkit-transition: all 0.3s;	
+-moz-transition: all 0.3s;	
+transition: all 0.3s;
+}
+
+.btn-4 {	
+border-radius: 50px;	
+border: 3px solid #fff;	
+color: #fff;	
+overflow: hidden;
+}
+
+.btn-4:active {	
+border-color: #17954c;	
+color:10px 2#17 10px 20px954c;
+}
+
+.btn-4:hover {	
+background: #52190E;
+}
+
+/* Order button */
+.btn-5 {
+margin: 10px;
+padding: 10px 20px 10px 20px;
+font-size: 20px;	
+border-radius: 50px;	
+border: 3px solid #fff;	
+color: #fff;	
+overflow: hidden;
+}
+
+.btn-5:active {	
+border-color: #1795dd;	
+color: #ffffff;
+}
+
+.btn-5:hover {	
+background: #24b662;
+}
+
+/* Comment and New place button */
+.btn-1 {
+	margin-left: -3px;
+	padding: 3px 10px 3px 10px;
+	border: 3px solid #fff;
+	color: #fff;
+}
+
+.btn-1:hover, .btn-1:active {
+	color: #24b662;
+	background: #fff;
+}
+
+.btn-1:after {
+	width: 100%;
+	height: 0;
+	top: 0;
+	left: 0;
+	background: #fff;
+}
+
+
+
