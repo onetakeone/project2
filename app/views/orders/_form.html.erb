@@ -1,1 +1,8 @@
-<p>Order: <% $info.each do |var| %> <% var.each do |key, value| %> <%= key.capitalize %> <strong><%= value %></strong> | <% end %><% end %></p>
+<p>
+<% $info.each do |key, value| %>
+	<% value.each do |key, value| %> 
+		<strong><%= value %></strong> <%= key.capitalize %>  |
+	<% end %>
+	@ <strong><%= key %></strong><br />
+<% end %>
+</p>

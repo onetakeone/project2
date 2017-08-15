@@ -16,10 +16,8 @@
 				<strong><%= var.phone %></strong>
 			</td>
 			<td>
-			<% @array[i].each do |variable| %>
-				  <% variable.each do |key, value| %>
-						// <%= key.capitalize %> <strong> <%= value %> </strong> 
-					<% end %>
+				<% @array[i].each do |key, value| %>
+					<% value.each do |key, value| %>| <%= key.capitalize %> <strong><%= value %></strong> <% end %>@ <strong><%= key %> //</strong> 
 				<% end %>
 			</td>			
 		</tr>

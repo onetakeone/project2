@@ -7,9 +7,9 @@
 <!-- Javascript function buttons - adds 1 item order to cart -->
 <p>
 <strong>Order coffee: </strong>
-<%if @place.espresso == true %><button class="btn btn-4" onclick="coffee_function('espresso')"> +1 espresso </button><% end %>
-<%if @place.cappuccino == true %><button class="btn btn-4" onclick="coffee_function('cappuccino')"> +1 cappuccino </button><% end %>
-<%if @place.latte == true %><button class="btn btn-4" onclick="coffee_function('latte')"> +1 latte </button><% end %>
+<%if @place.espresso == true %><button class="btn btn-4" onclick='coffee_function("<%= @place.title + '_espresso' %>")'> +1 espresso </button><% end %>
+<%if @place.cappuccino == true %><button class="btn btn-4" onclick='coffee_function("<%= @place.title + '_cappuccino' %>")'> +1 cappuccino </button><% end %>
+<%if @place.latte == true %><button class="btn btn-4" onclick='coffee_function("<%= @place.title + '_latte' %>")'> +1 latte </button><% end %>
 </p>
 
 <p>
@@ -37,9 +37,14 @@
 
 
 <script type="text/javascript">
+
+// Function places order data to Local Storage.
+// After that data is being copied to <input type="hidden" name="orders_btn" id="orders_input" > at application.html.erb 
+// Function takes localStorage item value by it's key, increases value by '1', sets new value to key in localStorage ( updates key-value pair)  
 function coffee_function(variable) 
 { 
 	alert ('Dear Adept, you have added 1 ' + variable + ' to your order.');
+
 	for(var x=0; x < 1; x++) 
 	{
 	  var hash_key = variable;
@@ -50,6 +55,7 @@ function coffee_function(variable)
 	location.reload();
 } 		
 
+// Function copies data from localStorage to <input> 
 $(function()
 	{
 		orders_input();		
