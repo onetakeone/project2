@@ -16,7 +16,7 @@
   <tbody>
     <% @places.each do |place| %>
       <tr>
-        <td><strong><%= place.title %></strong></td>        
+        <td><strong><%= link_to "#{place.title}", place %></strong></td>        
         <td><%if place.espresso == true%>// ESPRESSO <% end %> <%if place.cappuccino == true%>// CAPPUCCINO <% end %> <%if place.latte == true%>// LATTE <% end %></td>
         <td><%= place.address %></td>
         <td><%= link_to "#{place.description[0..25]}...", place %></td>
