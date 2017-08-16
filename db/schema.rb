@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20170807072809) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.string "username"
     t.text "content"
     t.string "commentable_type"
-    t.integer "commentable_id"
+    t.bigint "commentable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(version: 20170807072809) do
     t.boolean "espresso"
     t.boolean "cappuccino"
     t.boolean "latte"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_places_on_user_id"
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 20170807072809) do
   create_table "posts", force: :cascade do |t|
     t.text "body"
     t.string "title"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
