@@ -22,5 +22,5 @@ end
 def sign_in 
   visit new_user_session_path  
   user = FactoryGirl.create(:user)
-  login_as(user, :scope => :user, :run_callbacks => false)
+  login_as(user)
 end
